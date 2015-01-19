@@ -1,0 +1,28 @@
+{
+	"extensionName": "Kinect Sensor",
+	"extensionPort": 3330,
+	"blockSpecs": [
+		["r", "Hand Links X", "leftHandX"],
+		["r", "Hand Links Y", "leftHandY"],
+		["r", "Hand Rechts X", "rightHandX"],
+		["r", "Hand Rechts Y", "rightHandY"],
+		["r", "Elleboog Links X", "leftElbowX"],
+		["r", "Elleboog Links Y", "leftElbowY"],
+		["r", "Elleboog Rechts X", "rightElbowX"],
+		["r", "Elleboog Rechts Y", "rightElbowY"],
+		["r", "Hoofd X", "headX"],
+		["r", "Hoofd Y", "headY"],
+		["r", "Nek X", "spineShoulderX"],
+		["r", "Nek Y", "spineShoulderY"],
+		["r", "Heup X", "spineBaseX"],
+		["r", "Heup Y", "spineBaseY"],
+		["r", "Knie Links X", "leftKneeX"],
+		["r", "Knie Links Y", "leftKneeY"],
+		["r", "Knie Rechts X", "rightKneeX"],
+		["r", "Knie Rechts Y", "rightKneeY"],
+		["r", "Voet Links X", "leftFootX"],
+		["r", "Voet Links Y", "leftFootY"],
+		["r", "Voet Rechts X", "rightFootX"],
+		["r", "Voet Rechts Y", "rightFootY"]
+	]
+}

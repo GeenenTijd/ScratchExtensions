@@ -1,0 +1,16 @@
+{
+	"extensionName": "LeapMotion Sensor",
+	"extensionPort": 3331,
+	"blockSpecs": [
+		["r", "Hand-1 X", "hand-1-x"],
+		["r", "Hand-1 Y", "hand-1-y"],
+		["r", "Hand-1 Z", "hand-1-z"],
+		["b", "Hand-1 Open?", "hand-1-open"],
+		["b", "Hand-1 Visible?", "hand-1-visible"],
+		["r", "Hand-2 X", "hand-2-x"],
+		["r", "Hand-2 Y", "hand-2-y"],
+		["r", "Hand-2 Z", "hand-2-z"],
+		["b", "Hand-2 Open?", "hand-2-open"],
+		["b", "Hand-2 Visible?", "hand-2-visible"]
+	]
+}
