@@ -4,3 +4,7 @@ HelperApp/GeenenKinect/obj/
 HelperApp/GeenenLeap/obj/
 HelperApp/GeenenKinect/bin/
 HelperApp/GeenenLeap/bin/
+HelperApp/LeapServer/obj/
+HelperApp/LeapServer/bin/
+HelperApp/SimpleHttpServer/obj/
+HelperApp/SimpleHttpServer/bin/

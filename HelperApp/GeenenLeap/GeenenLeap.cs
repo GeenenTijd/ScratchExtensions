@@ -5,25 +5,6 @@ using System.Text;
 
 namespace GeenenLeap
 {
-
-    public class HandInfo
-    {
-        public float X;
-        public float Y;
-        public float Z;
-        public bool Open;
-        public bool Visible;
-
-        public HandInfo()
-        {
-            X = 0;
-            Y = 0;
-            Z = 0;
-            Open = false;
-            Visible = false;
-        }
-    }
-
     public class LeapController
     {
         private Controller m_controller;
@@ -35,6 +16,8 @@ namespace GeenenLeap
             {
                 m_controller = new Controller();
                 m_listener = new LeapListener();
+
+                m_controller.SetPolicyFlags(Controller.PolicyFlag.POLICYBACKGROUNDFRAMES);
                 m_controller.AddListener(m_listener);
             }
             catch (Exception ex)
@@ -130,9 +113,7 @@ namespace GeenenLeap
             lock (m_object)
             {
                 m_handInfo = builder.ToString();
-            }
-
-            
+            }            
         }
     }
 }

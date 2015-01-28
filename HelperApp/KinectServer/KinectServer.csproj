@@ -7,7 +7,7 @@
     <ProjectGuid>{8527871B-B3E9-4057-BCFC-D0435A58306D}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>KinectServer</RootNamespace>
+    <RootNamespace>LeapServer</RootNamespace>
     <AssemblyName>KinectServer</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -79,10 +79,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="KinectHttpServer.cs" />
-    <Compile Include="LeapHttpServer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SimpleHttpServer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -92,9 +90,9 @@
       <Project>{ad2919b1-6690-47bf-86b2-8505d1e2c451}</Project>
       <Name>GeenenKinect</Name>
     </ProjectReference>
-    <ProjectReference Include="..\GeenenLeap\GeenenLeap.csproj">
-      <Project>{29cac517-0143-4464-b847-6ca3ca33064d}</Project>
-      <Name>GeenenLeap</Name>
+    <ProjectReference Include="..\SimpleHttpServer\SimpleHttpServer.csproj">
+      <Project>{06a26815-216e-49c8-b19a-10a6516a5f4d}</Project>
+      <Name>SimpleHttpServer</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -116,7 +114,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy "$(SolutionDir)\External\*" "$(TargetDir)"</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

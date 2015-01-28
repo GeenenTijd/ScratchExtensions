@@ -1,54 +1,20 @@
 ﻿using System;
 using Microsoft.Kinect;
 using System.Timers;
+using System.Text;
 
 namespace GeenenKinect
 {
-    public struct BodyInfo
-    {
-        public float leftHandX;
-        public float leftHandY;
-
-        public float rightHandX;
-        public float rightHandY;
-
-        public float leftElbowX;
-        public float leftElbowY;
-
-        public float rightElbowX;
-        public float rightElbowY;
-
-        public float headX;
-        public float headY;
-
-        public float spineShoulderX;
-        public float spineShoulderY;
-
-        public float spineBaseX;
-        public float spineBaseY;
-
-        public float leftKneeX;
-        public float leftKneeY;
-
-        public float rightKneeX;
-        public float rightKneeY;
-
-        public float leftFootX;
-        public float leftFootY;
-
-        public float rightFootX;
-        public float rightFootY;
-
-    }
-
     public class KinectController
     {
+        private static readonly object m_object = new object();
+
         private KinectSensor kinectSensor = null;
         private CoordinateMapper coordinateMapper = null;
         private BodyFrameReader reader = null;
         private Body[] bodies = null;
 
-        private BodyInfo lastInfo;
+        private String m_bodyInfo = null;
 
         private const int multiplier = 100 * 3;
 
@@ -69,6 +35,14 @@ namespace GeenenKinect
                 // open the reader for the body frames
                 this.reader = this.kinectSensor.BodyFrameSource.OpenReader();
                 this.reader.FrameArrived += this.Reader_FrameArrived;
+            }
+        }
+
+        public string getBodyInfo()
+        {
+            lock (m_object)
+            {
+                return m_bodyInfo;
             }
         }
 
@@ -136,54 +110,89 @@ namespace GeenenKinect
 
         private void updateKinect(Body body)
         {
+            StringBuilder builder = new StringBuilder();
+
             CameraSpacePoint point = body.Joints[JointType.HandLeft].Position;
-            lastInfo.leftHandX = point.X * multiplier;
-            lastInfo.leftHandY = point.Y * multiplier;
+
+            builder.Append("leftHandX ");
+            builder.AppendLine((point.X * multiplier).ToString());
+            builder.Append("leftHandY ");
+            builder.AppendLine((point.Y * multiplier).ToString());
 
             point = body.Joints[JointType.HandRight].Position;
-            lastInfo.rightHandX = point.X * multiplier;
-            lastInfo.rightHandY = point.Y * multiplier;
+
+            builder.Append("rightHandX ");
+            builder.AppendLine((point.X * multiplier).ToString());
+            builder.Append("rightHandY ");
+            builder.AppendLine((point.Y * multiplier).ToString());
 
             point = body.Joints[JointType.ElbowLeft].Position;
-            lastInfo.leftElbowX = point.X * multiplier;
-            lastInfo.leftElbowY = point.Y * multiplier;
+
+            builder.Append("leftElbowX ");
+            builder.AppendLine((point.X * multiplier).ToString());
+            builder.Append("leftElbowY ");
+            builder.AppendLine((point.Y * multiplier).ToString());
 
             point = body.Joints[JointType.ElbowRight].Position;
-            lastInfo.rightElbowX = point.X * multiplier;
-            lastInfo.rightElbowY = point.Y * multiplier;
+
+            builder.Append("rightElbowX ");
+            builder.AppendLine((point.X * multiplier).ToString());
+            builder.Append("rightElbowY ");
+            builder.AppendLine((point.Y * multiplier).ToString());
 
             point = body.Joints[JointType.Head].Position;
-            lastInfo.headX = point.X * multiplier;
-            lastInfo.headY = point.Y * multiplier;
+
+            builder.Append("headX ");
+            builder.AppendLine((point.X * multiplier).ToString());
+            builder.Append("headY ");
+            builder.AppendLine((point.Y * multiplier).ToString());
 
             point = body.Joints[JointType.SpineShoulder].Position;
-            lastInfo.spineShoulderX = point.X * multiplier;
-            lastInfo.spineShoulderY = point.Y * multiplier;
+
+            builder.Append("spineShoulderX ");
+            builder.AppendLine((point.X * multiplier).ToString());
+            builder.Append("spineShoulderY ");
+            builder.AppendLine((point.Y * multiplier).ToString());
 
             point = body.Joints[JointType.SpineBase].Position;
-            lastInfo.spineBaseX = point.X * multiplier;
-            lastInfo.spineBaseY = point.Y * multiplier;
+
+            builder.Append("spineBaseX ");
+            builder.AppendLine((point.X * multiplier).ToString());
+            builder.Append("spineBaseY ");
+            builder.AppendLine((point.Y * multiplier).ToString());
 
             point = body.Joints[JointType.KneeLeft].Position;
-            lastInfo.leftKneeX = point.X * multiplier;
-            lastInfo.leftKneeY = point.Y * multiplier;
+
+            builder.Append("leftKneeX ");
+            builder.AppendLine((point.X * multiplier).ToString());
+            builder.Append("leftKneeY ");
+            builder.AppendLine((point.Y * multiplier).ToString());
 
             point = body.Joints[JointType.KneeRight].Position;
-            lastInfo.rightKneeX = point.X * multiplier;
-            lastInfo.rightKneeY = point.Y * multiplier;
+
+            builder.Append("rightKneeX ");
+            builder.AppendLine((point.X * multiplier).ToString());
+            builder.Append("rightKneeY ");
+            builder.AppendLine((point.Y * multiplier).ToString());
 
             point = body.Joints[JointType.FootLeft].Position;
-            lastInfo.leftFootX = point.X * multiplier;
-            lastInfo.leftFootY = point.Y * multiplier;
+
+            builder.Append("leftFootX ");
+            builder.AppendLine((point.X * multiplier).ToString());
+            builder.Append("leftFootY ");
+            builder.AppendLine((point.Y * multiplier).ToString());
 
             point = body.Joints[JointType.FootRight].Position;
-            lastInfo.rightFootX = point.X * multiplier;
-            lastInfo.rightFootY = point.Y * multiplier;
-        }
 
-        public BodyInfo getBodyInfo()
-        {
-            return lastInfo;
+            builder.Append("rightFootX ");
+            builder.AppendLine((point.X * multiplier).ToString());
+            builder.Append("rightFootY ");
+            builder.AppendLine((point.Y * multiplier).ToString());
+
+            lock (m_object)
+            {
+                m_bodyInfo = builder.ToString();
+            }
         }
     }
 }

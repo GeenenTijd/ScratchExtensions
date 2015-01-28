@@ -11,7 +11,7 @@ using System.Threading;
 // simple HTTP explanation
 // http://www.jmarshall.com/easy/http/
 
-namespace KinectServer
+namespace SimpleHttpServer
 {
     public class HttpProcessor
     {
@@ -34,7 +34,6 @@ namespace KinectServer
             this.socket = s;
             this.srv = srv;
         }
-
 
         private string streamReadLine(Stream inputStream)
         {
@@ -78,7 +77,7 @@ namespace KinectServer
             }
             outputStream.Flush();
             inputStream = null;
-            outputStream = null;      
+            outputStream = null;
             socket.Close();
         }
 
@@ -174,24 +173,20 @@ namespace KinectServer
         public void writeSuccess(string content_type = "text/html")
         {
             // this is the successful HTTP response line
-            outputStream.WriteLine("HTTP/1.0 200 OK");
-            // these are the HTTP headers...          
+            outputStream.WriteLine("HTTP/1.0 200 OK");  
             outputStream.WriteLine("Content-Type: " + content_type);
             outputStream.WriteLine("Connection: close");
-            // ..add your own headers here if you like
-
-            outputStream.WriteLine(""); // this terminates the HTTP headers.. everything after this is HTTP body..
+            // this terminates the HTTP headers.. everything after this is HTTP body..
+            outputStream.WriteLine("");
         }
 
         public void writeFailure()
         {
             // this is an http 404 failure response
             outputStream.WriteLine("HTTP/1.0 404 File not found");
-            // these are the HTTP headers
             outputStream.WriteLine("Connection: close");
-            // ..add your own headers here
-
-            outputStream.WriteLine(""); // this terminates the HTTP headers.
+            // this terminates the HTTP headers.. everything after this is HTTP body..
+            outputStream.WriteLine("");
         }
     }
 

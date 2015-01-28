@@ -1,16 +1,15 @@
 ﻿using System;
 using System.Threading;
 
-namespace KinectServer
+namespace LeapServer
 {
     class Program
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Starting Leap Motion Controller.");
 
-            Console.WriteLine("Starting Kinect Controller.");
-
-            KinectHttpServer httpServer = new KinectHttpServer(3330);
+            LeapHttpServer httpServer = new LeapHttpServer(3331);
             Thread thread = new Thread(new ThreadStart(httpServer.listen));
             thread.Start();
         }
