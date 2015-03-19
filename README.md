@@ -1,5 +1,5 @@
 # ScratchExtensions
-Scratch Extensions for CoderDojo
+Scratch Extensions for Kinect2 and Leap Motion
 
 ## Helper App
 
