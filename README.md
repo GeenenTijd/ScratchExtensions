@@ -7,4 +7,6 @@ This helper application creates a http server that can communitcate with Scratch
 
 ## Installation
 
+Press Download ZIP on the right side. Extract the zip and open KinectServer.exe in bin/KinectServer.
+
 In Scratch 2 Offline you press shift + file. Import Experimental HTTP extension. Add one of the json files provided. This adds extra block under More Blocks. You should see a green light when connected to the server.
