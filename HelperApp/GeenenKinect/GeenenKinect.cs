@@ -16,7 +16,7 @@ namespace GeenenKinect
 
         private String m_bodyInfo = null;
 
-        private const int multiplier = 100 * 3;
+        private const int multiplier = 200;
 
         public KinectController()
         {
@@ -115,79 +115,79 @@ namespace GeenenKinect
             CameraSpacePoint point = body.Joints[JointType.HandLeft].Position;
 
             builder.Append("leftHandX ");
-            builder.AppendLine((point.X * multiplier).ToString());
+            builder.AppendLine(Math.Round(point.X * multiplier).ToString());
             builder.Append("leftHandY ");
-            builder.AppendLine((point.Y * multiplier).ToString());
+            builder.AppendLine(Math.Round(point.Y * multiplier).ToString());
 
             point = body.Joints[JointType.HandRight].Position;
 
             builder.Append("rightHandX ");
-            builder.AppendLine((point.X * multiplier).ToString());
+            builder.AppendLine(Math.Round(point.X * multiplier).ToString());
             builder.Append("rightHandY ");
-            builder.AppendLine((point.Y * multiplier).ToString());
+            builder.AppendLine(Math.Round(point.Y * multiplier).ToString());
 
             point = body.Joints[JointType.ElbowLeft].Position;
 
             builder.Append("leftElbowX ");
-            builder.AppendLine((point.X * multiplier).ToString());
+            builder.AppendLine(Math.Round(point.X * multiplier).ToString());
             builder.Append("leftElbowY ");
-            builder.AppendLine((point.Y * multiplier).ToString());
+            builder.AppendLine(Math.Round(point.Y * multiplier).ToString());
 
             point = body.Joints[JointType.ElbowRight].Position;
 
             builder.Append("rightElbowX ");
-            builder.AppendLine((point.X * multiplier).ToString());
+            builder.AppendLine(Math.Round(point.X * multiplier).ToString());
             builder.Append("rightElbowY ");
-            builder.AppendLine((point.Y * multiplier).ToString());
+            builder.AppendLine(Math.Round(point.Y * multiplier).ToString());
 
             point = body.Joints[JointType.Head].Position;
 
             builder.Append("headX ");
-            builder.AppendLine((point.X * multiplier).ToString());
+            builder.AppendLine(Math.Round(point.X * multiplier).ToString());
             builder.Append("headY ");
-            builder.AppendLine((point.Y * multiplier).ToString());
+            builder.AppendLine(Math.Round(point.Y * multiplier).ToString());
 
             point = body.Joints[JointType.SpineShoulder].Position;
 
             builder.Append("spineShoulderX ");
-            builder.AppendLine((point.X * multiplier).ToString());
+            builder.AppendLine(Math.Round(point.X * multiplier).ToString());
             builder.Append("spineShoulderY ");
-            builder.AppendLine((point.Y * multiplier).ToString());
+            builder.AppendLine(Math.Round(point.Y * multiplier).ToString());
 
             point = body.Joints[JointType.SpineBase].Position;
 
             builder.Append("spineBaseX ");
-            builder.AppendLine((point.X * multiplier).ToString());
+            builder.AppendLine(Math.Round(point.X * multiplier).ToString());
             builder.Append("spineBaseY ");
-            builder.AppendLine((point.Y * multiplier).ToString());
+            builder.AppendLine(Math.Round(point.Y * multiplier).ToString());
 
             point = body.Joints[JointType.KneeLeft].Position;
 
             builder.Append("leftKneeX ");
-            builder.AppendLine((point.X * multiplier).ToString());
+            builder.AppendLine(Math.Round(point.X * multiplier).ToString());
             builder.Append("leftKneeY ");
-            builder.AppendLine((point.Y * multiplier).ToString());
+            builder.AppendLine(Math.Round(point.Y * multiplier).ToString());
 
             point = body.Joints[JointType.KneeRight].Position;
 
             builder.Append("rightKneeX ");
-            builder.AppendLine((point.X * multiplier).ToString());
+            builder.AppendLine(Math.Round(point.X * multiplier).ToString());
             builder.Append("rightKneeY ");
-            builder.AppendLine((point.Y * multiplier).ToString());
+            builder.AppendLine(Math.Round(point.Y * multiplier).ToString());
 
-            point = body.Joints[JointType.FootLeft].Position;
+            point = body.Joints[JointType.AnkleLeft].Position;
 
             builder.Append("leftFootX ");
-            builder.AppendLine((point.X * multiplier).ToString());
+            builder.AppendLine(Math.Round(point.X * multiplier).ToString());
             builder.Append("leftFootY ");
-            builder.AppendLine((point.Y * multiplier).ToString());
+            builder.AppendLine(Math.Round(point.Y * multiplier).ToString());
 
-            point = body.Joints[JointType.FootRight].Position;
+            point = body.Joints[JointType.AnkleRight].Position;
 
             builder.Append("rightFootX ");
-            builder.AppendLine((point.X * multiplier).ToString());
+            builder.AppendLine(Math.Round(point.X * multiplier).ToString());
             builder.Append("rightFootY ");
-            builder.AppendLine((point.Y * multiplier).ToString());
+            builder.AppendLine(Math.Round(point.Y * multiplier).ToString());
 
             lock (m_object)
             {
